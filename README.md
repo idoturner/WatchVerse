@@ -6,7 +6,7 @@ WatchVerse is inspired by the visual richness of Netflix, the curatorial soul of
 
 > **Status — `v1.0.2`, stable & feature-complete.** The first stable release was `v1.0.0` (Phase 9); two focused patches followed — `v1.0.1` (TMDB data-quality & Discover relevance) and `v1.0.2` (Cinema Mode polish). The product is now frozen for portfolio presentation. Built documentation-first; the full spec lives under [`docs/`](docs/). An optional backend/cloud phase (Phase 10) is deliberately deferred future work, not part of the v1.x line (see the [Roadmap](#roadmap)).
 
-**Live demo:** _Not deployed yet._ WatchVerse is a static, frontend-only app — see [Deployment](#deployment) for one-command hosting on Vercel / Netlify / Cloudflare Pages.
+**Live demo: [watch-verse-seven.vercel.app](https://watch-verse-seven.vercel.app)** — a static, frontend-only app deployed on Vercel (auto-deploys on every push). See [Deployment](#deployment) for the setup.
 
 ### Quality gate
 
@@ -118,7 +118,7 @@ WatchVerse is a **static, frontend-only SPA** — no server runtime. Any static 
 - **Cloudflare Pages** — SPA fallback is automatic for Vite output
 - **GitHub Pages** — copy `index.html` to `404.html`
 
-(Not deployed yet — these are the settings to use when you do.)
+**Live deployment:** [watch-verse-seven.vercel.app](https://watch-verse-seven.vercel.app) (Vercel, using the settings above).
 
 WatchVerse uses the TMDB API but is not endorsed or certified by TMDB.
 
