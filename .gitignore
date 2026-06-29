@@ -1,0 +1,25 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+dev-dist
+*.tsbuildinfo
+
+# Test coverage
+coverage
+
+# Local env / secrets (only .env.example is committed)
+.env
+.env.*.local
+*.local
+
+# Logs & caches
+*.log
+.vite
+
+# Editor / OS
+.DS_Store
+.vscode
+.idea
+.claude/settings.local.json

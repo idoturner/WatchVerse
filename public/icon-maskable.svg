@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="WatchVerse">
+  <rect width="512" height="512" fill="#0E0E11"/>
+  <circle cx="256" cy="256" r="118" fill="none" stroke="#E5484D" stroke-width="20"/>
+  <path d="M223 200 L223 312 L317 256 Z" fill="#E6B450"/>
+</svg>

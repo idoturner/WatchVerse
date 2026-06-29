@@ -1,0 +1,63 @@
+/**
+ * WatchVerse design tokens.
+ * Components consume SEMANTIC tokens (via Tailwind utilities) only — never raw hex.
+ * A theme is a different mapping of semantic → value; Cinema Dark ships in v1.0.
+ * See docs/02-design/design-system.md.
+ *
+ * NOTE: color values are the Cinema Dark baseline. They target WCAG 2.1 AA and must
+ * pass the contrast checklist (docs/02-design/ux-accessibility-motion.md §2.3) before
+ * being treated as final; any failing value is corrected there and reflected here.
+ */
+
+:root {
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Motion durations */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --duration-cinematic: 600ms;
+
+  /* Motion easing */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Z-index scale */
+  --z-base: 0;
+  --z-rail-controls: 10;
+  --z-sticky-nav: 100;
+  --z-dropdown: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+}
+
+[data-theme='cinema-dark'] {
+  /* Backgrounds & borders */
+  --color-bg-base: #0e0e11;
+  --color-bg-surface: #16161b;
+  --color-bg-elevated: #1e1e25;
+  --color-border-subtle: #2a2a33;
+  --color-border-strong: #3a3a45;
+
+  /* Text */
+  --text-primary: #f5f5f7;
+  --text-secondary: #9a9aa5;
+  --text-tertiary: #6e6e78;
+
+  /* Accents */
+  --color-accent: #e5484d;
+  --color-accent-hover: #c2342e;
+  --color-highlight: #e6b450; /* gold — reserved for earned/exceptional */
+  --color-accent-secondary: #f0894c;
+  --color-focus-ring: #e6b450;
+
+  /* Watch-status colors (color is always paired with icon + label) */
+  --status-want: #f0894c; /* soft orange — NOT gold */
+  --status-watching: #5a9bd6;
+  --status-completed: #4fb477;
+  --status-onhold: #e0a33e;
+  --status-dropped: #6e6e78;
+}

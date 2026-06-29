@@ -1,0 +1,1 @@
+export { CinemaModeScreen } from './CinemaModeScreen';
