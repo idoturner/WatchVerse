@@ -15,6 +15,7 @@ import type {
   TitleSnapshot,
   WatchStatus,
 } from '@/domain/types';
+import { notifyMovieActivity } from '@/services/weeklyRecapWebhook';
 import { useActivityStore } from './activityStore';
 
 function logActivity(type: ActivityType, label: string, refId: string | null): void {
@@ -156,6 +157,10 @@ export const useLibraryStore = create<LibraryState>((set, get) => {
             : `Marked ${updated.snapshot.title} as ${STATUS_LABELS[status]}`,
           id,
         );
+        // Weekly Recap automation (optional): a movie marked watched. Background, never blocks.
+        if (status === 'completed' && updated.mediaType === 'movie') {
+          notifyMovieActivity('watched', updated);
+        }
       }
     },
 
@@ -163,6 +168,7 @@ export const useLibraryStore = create<LibraryState>((set, get) => {
       const updated = await persistUpdate(id, (entry) => ({ ...entry, rating }));
       if (updated && rating !== null) {
         logActivity('rated', `Rated ${updated.snapshot.title} ${rating}/10`, id);
+        if (updated.mediaType === 'movie') notifyMovieActivity('rating_updated', updated);
       }
     },
 
@@ -173,6 +179,7 @@ export const useLibraryStore = create<LibraryState>((set, get) => {
       }));
       if (updated && updated.review !== null) {
         logActivity('reviewed', `Reviewed ${updated.snapshot.title}`, id);
+        if (updated.mediaType === 'movie') notifyMovieActivity('review_updated', updated);
       }
     },
 

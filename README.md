@@ -159,6 +159,36 @@ Intentional v1 boundaries — deferred by design, not bugs:
 
 ---
 
+## Weekly WatchVerse Recap (optional automation)
+
+WatchVerse can send **movie activity events** (watched / rating / review) to an [n8n](https://n8n.io)
+webhook, which stores them in **Google Sheets** and emails a **weekly HTML recap every Sunday at
+09:00**. The app stays **frontend-only** — it never sends the email or computes the weekly stats,
+and the recipient address lives only in n8n.
+
+```
+WatchVerse → n8n webhook → Google Sheets → n8n schedule (Sun 09:00) → Gmail weekly recap
+```
+
+- Fully **optional**: with the env vars unset, WatchVerse works exactly as before.
+- Events fire in the background after local/`localStorage` updates and never block or break the app.
+- Try it under **Settings → Automations → "Test automation connection."**
+
+Configure two env vars (locally in `.env` and in Vercel, then redeploy):
+
+```bash
+VITE_WEEKLY_RECAP_WEBHOOK_URL=
+VITE_WEEKLY_RECAP_AUTOMATION_KEY=
+```
+
+Full setup (Google Sheet, both n8n workflows, the email HTML, and testing):
+**[docs/weekly-watchverse-recap.md](docs/weekly-watchverse-recap.md)**.
+
+> `VITE_*` values are visible in the browser bundle, so the automation key is a light demo guard,
+> not real security — n8n validates `source`, `eventType`, and `automationKey` on its side.
+
+---
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow, coding conventions, documentation process, and commit standards.

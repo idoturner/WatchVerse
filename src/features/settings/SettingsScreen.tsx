@@ -3,6 +3,7 @@ import { APP_VERSION } from '@/config/constants';
 import { ImportExportControls } from '@/features/library';
 import { Card, Select, Toggle } from '@/shared/ui';
 import { useSettingsStore } from '@/stores/settingsStore';
+import { AutomationTest } from './components/AutomationTest';
 import { ResetDataControl } from './components/ResetDataControl';
 
 function Section({
@@ -115,6 +116,13 @@ export function SettingsScreen() {
           </p>
           <ResetDataControl />
         </div>
+      </Section>
+
+      <Section
+        title="Automations"
+        description="Optional: WatchVerse can send movie activity to a Weekly Recap webhook (n8n → Google Sheets → a weekly email). Off unless you configure it; the app works normally without it."
+      >
+        <AutomationTest />
       </Section>
 
       <Section title="About">
